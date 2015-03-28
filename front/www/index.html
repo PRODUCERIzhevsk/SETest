@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My Test</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Bootstrap css -->
+    <link href="bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- jQuery js -->
+    <script src="jquery/jquery-1.11.2.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+    <!-- js -->
+    <script src="js/photo.js"></script>
+
+    <script>
+        $( document ).ready(function()
+        {
+        });
+
+        var OnBtnClick = function()
+        {
+            var th = MyPhotos().Thumbnail(3);
+            $("#Photos").html("");
+            $("#Photos").append(th);
+            //$("#Photos")
+        };
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <a class="btn btn-default" href="#" role="button" onclick="OnBtnClick()">Link</a>
+
+    <div id = "Photos">
+
+    </div>
+</div>
+
+</body>
+</html>
