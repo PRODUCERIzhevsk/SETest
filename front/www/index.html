@@ -15,31 +15,221 @@
     <!-- Bootstrap js -->
     <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
 
+    <!-- Bootstrap css -->
+    <link href="css/styles.css" rel="stylesheet">
+
     <!-- js -->
+    <script src="js/api.js"></script>
     <script src="js/photo.js"></script>
 
     <script>
         $( document ).ready(function()
         {
+            $("#btnCreateInvoice").hide();
+            $("#Photos").hide();
+            $("#Items").hide();
+
+            API().LoadUsers();
+
+            $(API().Events).on(API().Events.ON_LOAD_INVOICES,
+                    function(e)
+                    {
+                        var rows = Content().ItemsList().GetItemsList();
+                        $("#items-table-body").html(rows);
+                    }
+            );
         });
 
         var OnBtnClick = function()
         {
-            var th = MyPhotos().Thumbnail(3);
-            $("#Photos").html("");
-            $("#Photos").append(th);
-            //$("#Photos")
+            var form = Content().UsersList().UsersForm();
+            $("#Items").hide();
+            $("#Photos").show();
+            $("#Photos").html(form);
+            $("#btnCreateInvoice").show();
+        };
+
+        var OnBtnShowInvoiceFormClick = function()
+        {
+            if (window.IdSender == undefined || window.IdSender == null)
+            {
+                alert('Sender is undefined');
+                return;
+            }
+
+            if (window.IdRecipient == undefined || window.IdRecipient == null)
+            {
+                alert('Recipient is undefined');
+                return;
+            }
+
+            $('#modalInvoiceForm').modal('show');
+
+            var idSender = window.IdSender;
+            var idRecipient = window.IdRecipient;
+
+            var senderName = Content().UsersList().GetUserByID(idSender).name;
+            var recipientName = Content().UsersList().GetUserByID(idRecipient).name;
+
+            $("#input-sender").val(senderName);
+            $("#input-recipient").val(recipientName);
+        };
+
+        var OnBtnCreateInvoiceClick = function()
+        {
+            var idSender = window.IdSender;
+            var idRecipient = window.IdRecipient;
+
+            var count = $("#input-count").val();
+            var price = $("#input-price").val();
+            var itemName = $("#input-item-name").val();
+
+            API().AddInvoice(idSender, idRecipient, count, price, itemName);
+            $('#modalInvoiceForm').modal('hide');
+        };
+
+        var OnBtnItemsClick = function()
+        {
+            $("#Photos").hide();
+            $("#Items").show();
+
+            API().LoadInvoices();
         };
     </script>
 </head>
 <body>
 
 <div class="container">
-    <a id = "btnPhotos" class="btn btn-default" href="#" role="button" onclick="OnBtnClick()">Link</a>
+    <a id = "btnPhotos"
+       class="btn btn-default"
+       href="#"
+       role="button"
+       onclick="OnBtnClick()">User Form</a>
+
+    <a id = "btnItems"
+       class="btn btn-default"
+       href="#"
+       role="button"
+       onclick="OnBtnItemsClick()">Items List</a>
 
     <div id = "Photos">
 
     </div>
+
+    <div id = "Items">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Получатель</th>
+                <th>Отправитель</th>
+                <th>Товар</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id = "items-table-body">
+            </tbody>
+        </table>
+
+        <!--div class="bs-example" data-example-id="hoverable-table">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
+        </div-->
+    </div>
+
+    <a id = "btnCreateInvoice"
+       class="btn btn-default"
+       role="button" onclick="OnBtnShowInvoiceFormClick()">Create Invoice</a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalInvoiceForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Invoice Creation Form</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="input-sender">Отправитель</label>
+                        <input type="text"
+                               class="form-control"
+                               id="input-sender"
+                               placeholder="Sender"
+                               readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-recipient">Получатель</label>
+                        <input type="text"
+                               class="form-control"
+                               id="input-recipient"
+                               placeholder="Sender"
+                               readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-count">Количество</label>
+                        <input type="text"
+                               class="form-control"
+                               id="input-count"
+                               placeholder="Количество">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-price">Цена</label>
+                        <input type="text"
+                               class="form-control"
+                               id="input-price"
+                               placeholder="Цена">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="input-item-name">Наименование товара</label>
+                        <input type="text"
+                               class="form-control"
+                               id="input-item-name"
+                               placeholder="Наименование товара">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"
+                            onclick = "OnBtnCreateInvoiceClick()">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>

@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTest1", "SeleniumTest1\SeleniumTest1.csproj", "{09E3A167-BC13-49BC-B5D6-AA733275E02F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SETest.Data", "SETest.Data\SETest.Data.csproj", "{41584AF6-7F71-436A-B319-805BA411D166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SETest.DataWriter", "SETest.DataWriter\SETest.DataWriter.csproj", "{564CF27B-B68D-40BF-A545-A420036B07FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,18 @@ Global
 		{09E3A167-BC13-49BC-B5D6-AA733275E02F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09E3A167-BC13-49BC-B5D6-AA733275E02F}.Release|x86.ActiveCfg = Release|x86
 		{09E3A167-BC13-49BC-B5D6-AA733275E02F}.Release|x86.Build.0 = Release|x86
+		{41584AF6-7F71-436A-B319-805BA411D166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41584AF6-7F71-436A-B319-805BA411D166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41584AF6-7F71-436A-B319-805BA411D166}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{41584AF6-7F71-436A-B319-805BA411D166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41584AF6-7F71-436A-B319-805BA411D166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41584AF6-7F71-436A-B319-805BA411D166}.Release|x86.ActiveCfg = Release|Any CPU
+		{564CF27B-B68D-40BF-A545-A420036B07FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{564CF27B-B68D-40BF-A545-A420036B07FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{564CF27B-B68D-40BF-A545-A420036B07FD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{564CF27B-B68D-40BF-A545-A420036B07FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{564CF27B-B68D-40BF-A545-A420036B07FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{564CF27B-B68D-40BF-A545-A420036B07FD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
