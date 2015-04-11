@@ -16,7 +16,7 @@ namespace SeleniumTest1
     {
         static void Main(string[] args)
         {
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("http://www.plexusdev.ru/setest");
             Thread.Sleep(3000);
 
