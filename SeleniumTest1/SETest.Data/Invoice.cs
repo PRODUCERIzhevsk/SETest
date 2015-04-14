@@ -18,8 +18,40 @@ namespace SETest.Data
 
         public Good item { get; set; }
 
-        public decimal Count { get; set; }
-        public decimal Price { get; set; }
+        [XmlIgnore]
+        public decimal DCount { get; set; }
+
+        public string Count
+        {
+            get
+            {
+                return DCount.ToString();
+            }
+            set
+            {
+                decimal count = new decimal();
+                decimal.TryParse(value, out count);
+                DCount = count;
+            }
+        }
+
+        [XmlIgnore]
+        public decimal DPrice { get; set; }
+
+        public string Price
+        {
+            get
+            {
+                return DPrice.ToString();
+            }
+            set
+            {
+                decimal price = new decimal();
+                decimal.TryParse(value, out price);
+                DPrice = price;
+            }
+        }
+
         public decimal Summ { get; set; }
 
         public static void SaveToXML(Invoice invoice, string fileName)
