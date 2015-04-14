@@ -12,12 +12,6 @@ namespace SETest.DataWriter
         static void Main(string[] args)
         {
 
-            double a = 1.1;
-            double b = 1.0;
-
-            Console.WriteLine(a-b);
-            Console.ReadKey();
-
             /*
             Invoice invoice = new Invoice
             {
@@ -34,11 +28,8 @@ namespace SETest.DataWriter
             Invoice.SaveToXML(invoice, "invoce.xml");
             */
 
-            /*
-            invoice = Invoice.LoadFromXML("invoce.xml");
-            Console.WriteLine(invoice.IdRecipient);
+            var invoice = Invoice.LoadFromXML("data.xml");
             Console.ReadLine();
-            */
         }
     }
 }

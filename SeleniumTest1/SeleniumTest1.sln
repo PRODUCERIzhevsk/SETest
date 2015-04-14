@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTest1", "SeleniumTest1\SeleniumTest1.csproj", "{09E3A167-BC13-49BC-B5D6-AA733275E02F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SETest.Data", "SETest.Data\SETest.Data.csproj", "{41584AF6-7F71-436A-B319-805BA411D166}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SETest.DataWriter", "SETest.DataWriter\SETest.DataWriter.csproj", "{564CF27B-B68D-40BF-A545-A420036B07FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SETest.Tests", "SETest.Tests\SETest.Tests.csproj", "{C01ADA74-B635-43FE-B503-F855E8C21227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SETest.Tests.Saucelabs", "SETest.Test.Saucelabs\SETest.Tests.Saucelabs.csproj", "{D613C56D-033C-4062-B339-0BE40AFF561F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SETest.Tests.Console", "SETest.Tests.Console\SETest.Tests.Console.csproj", "{B14AC93B-EF6B-48AA-8C83-7FA018E46224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +43,24 @@ Global
 		{564CF27B-B68D-40BF-A545-A420036B07FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{564CF27B-B68D-40BF-A545-A420036B07FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{564CF27B-B68D-40BF-A545-A420036B07FD}.Release|x86.ActiveCfg = Release|Any CPU
+		{C01ADA74-B635-43FE-B503-F855E8C21227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C01ADA74-B635-43FE-B503-F855E8C21227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C01ADA74-B635-43FE-B503-F855E8C21227}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C01ADA74-B635-43FE-B503-F855E8C21227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C01ADA74-B635-43FE-B503-F855E8C21227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C01ADA74-B635-43FE-B503-F855E8C21227}.Release|x86.ActiveCfg = Release|Any CPU
+		{D613C56D-033C-4062-B339-0BE40AFF561F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D613C56D-033C-4062-B339-0BE40AFF561F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D613C56D-033C-4062-B339-0BE40AFF561F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D613C56D-033C-4062-B339-0BE40AFF561F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D613C56D-033C-4062-B339-0BE40AFF561F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D613C56D-033C-4062-B339-0BE40AFF561F}.Release|x86.ActiveCfg = Release|Any CPU
+		{B14AC93B-EF6B-48AA-8C83-7FA018E46224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B14AC93B-EF6B-48AA-8C83-7FA018E46224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B14AC93B-EF6B-48AA-8C83-7FA018E46224}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B14AC93B-EF6B-48AA-8C83-7FA018E46224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B14AC93B-EF6B-48AA-8C83-7FA018E46224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B14AC93B-EF6B-48AA-8C83-7FA018E46224}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
